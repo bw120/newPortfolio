@@ -436,7 +436,7 @@ img {
 @media screen and (max-width: 324px) and (orientation: portrait) {
   .intro {
     position: absolute;
-    margin-top: 20%;
+    margin-top: 35%;
     height: 50%; }
     .intro .title {
       font-size: 1em; }
@@ -468,7 +468,7 @@ img {
 
   .header {
     position: absolute;
-    bottom: 0;
+    top: 2%;
     left: 0;
     right: 0;
     width: 90%;
@@ -511,7 +511,7 @@ img {
 @media screen and (max-width: 500px) and (min-width: 325px) and (orientation: portrait) {
   .intro {
     position: absolute;
-    top: 10%;
+    top: 20%;
     height: 50%; }
     .intro .title {
       font-size: 1.2em; }
@@ -543,7 +543,7 @@ img {
 
   .header {
     position: absolute;
-    bottom: 0;
+    top: 2%;
     left: 0;
     right: 0;
     width: 90%;
