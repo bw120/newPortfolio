@@ -102,12 +102,14 @@ var ticker = {
 	}
 };
 
-//pops up info box when project item is hovered over
+//pops up info box when project item is hovered over and opens model when clicked
 var projectInfo = function(modalID, projectIDs) {
 
 	var self = this;
 
 	//get elements that will need updating
+	var scrollbar = window.innerWidth > document.documentElement.clientWidth
+	var container = document.getElementsByClassName("container")[0];
 	var modal = document.getElementById(modalID);
 	var modalContent = document.getElementById(content);
 	var close = modal.getElementsByClassName("modal-close")[0];
@@ -153,7 +155,7 @@ var projectInfo = function(modalID, projectIDs) {
 	};
 
 	this.openModal = function(element, content, item) {
-
+		if (scrollbar) container.classList.add("scrollPad");
 		image.src = myData.projects.projectInfo[item].picture;
 		title.innerHTML = myData.projects.projectInfo[item].title;
 		date.innerHTML = myData.projects.projectInfo[item].date;
@@ -167,8 +169,9 @@ var projectInfo = function(modalID, projectIDs) {
 	};
 
 	this.closeModal = function(element) {
+		container.classList.remove("scrollPad");
 		element.className = "modal-hidden";
-		body.style.overflowY = "initial";
+		body.style.overflowY = "auto";
 	};
 
 	this.addListeners();
@@ -179,7 +182,7 @@ var scroller = function(element) {
 	event.preventDefault();
 	var topOffset = document.getElementById(element).offsetTop;
 	var scrollAmount = Math.floor(topOffset / 20);
-	var totalScrolled = 0;
+	var totalScrolled = window.scrollY;
 
 	var scrollDown = function() {
 		if (element) {

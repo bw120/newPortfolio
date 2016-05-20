@@ -5,6 +5,15 @@ html, body {
   padding: 0;
   font-family: 'Josefin Sans', sans-serif; }
 
+p {
+  margin: 0 0 1em 0; }
+
+h3 {
+  margin: 0 3em 0em 0; }
+
+strong {
+  font-size: 105%; }
+
 a {
   text-decoration: none;
   border-bottom: 2px solid rgba(255, 255, 255, 0); }
@@ -13,8 +22,18 @@ a:hover {
   border-bottom: 2px solid white;
   transition: border-bottom 0.7s; }
 
+ul {
+  padding: 0 1em 1em 1em;
+  margin: 0; }
+
+li {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: .5em; }
+
 img {
-  width: 100%; }
+  width: 100%;
+  border-style: none; }
 
 .container {
   position: relative; }
@@ -27,29 +46,17 @@ img {
   box-shadow: 0 0 20px #282828;
   background: linear-gradient(to right, rgba(33, 131, 222, 0.4), rgba(33, 131, 222, 0.9)), radial-gradient(circle at 6% 6%, #4799E3 25%, #2185DE 25%, #2185DE 45%, #0976D8 45%, #0976D8 70%, #1E64BE 70%); }
   .top-container .top {
+    position: relative;
     max-width: 900px;
+    height: 100%;
     margin-left: auto;
     margin-right: auto;
     padding: 2% 3% 0 3%;
     box-sizing: border-box;
     color: #ffffff; }
-    .top-container .top .header {
-      position: relative;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-flex-wrap: nowrap;
-          -ms-flex-wrap: nowrap;
-              flex-wrap: nowrap;
-      -webkit-justify-content: space-between;
-          -ms-flex-pack: justify;
-              justify-content: space-between; }
     .top-container .top .logo {
-      width: 8%; }
+      width: 15vh; }
     .top-container .top .links {
-      position: absolute;
-      bottom: 5%;
-      right: 0;
       text-transform: uppercase;
       color: #ffffff; }
       .top-container .top .links a {
@@ -57,32 +64,16 @@ img {
         padding: 0 0 3px 0;
         color: #ffffff; }
   .top-container .intro {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    position: relative;
     width: 75%;
-    height: 25%;
-    margin: 15% auto 10% auto; }
-    .top-container .intro .profile-pic {
-      position: relative;
-      width: 195px;
-      height: 195px;
-      border: 5px solid #ffffff;
-      background: url(../images/ben_1x.jpg) center;
-      background-size: cover;
-      border-radius: 100px;
-      margin-right: auto;
-      margin-left: auto; }
+    margin-right: auto;
+    margin-left: auto; }
     .top-container .intro .name {
-      font-size: 3em;
       margin-top: 4%;
       margin-right: auto;
       margin-left: auto;
       text-align: center; }
     .top-container .intro .title {
-      font-size: 1.5em;
       margin-right: auto;
       margin-left: auto;
       text-align: center; }
@@ -91,8 +82,6 @@ img {
   margin-right: auto;
   margin-left: auto;
   text-align: center;
-  font-size: 1.5em;
-  margin: 5%;
   opacity: 1;
   transition: opacity 0.5s; }
 
@@ -100,8 +89,6 @@ img {
   margin-right: auto;
   margin-left: auto;
   text-align: center;
-  font-size: 1.5em;
-  margin: 5%;
   opacity: 0;
   transition: opacity 0.5s; }
 
@@ -123,14 +110,15 @@ img {
     -webkit-justify-content: space-around;
         -ms-flex-pack: distribute;
             justify-content: space-around;
-    -ms-flex-line-pack: justify;
-            -webkit-align-content: space-between;
+    -webkit-align-content: space-between;
+        -ms-flex-line-pack: justify;
             align-content: space-between; }
     .projects .projects-feature .project-item {
       position: relative;
       width: 30%;
       min-width: 150px;
-      margin: 1%;
+      max-width: 250px;
+      margin: 2%;
       border: 0;
       cursor: pointer;
       box-shadow: 0 0 20px #282828; }
@@ -171,17 +159,19 @@ img {
 
 .modal-hidden {
   position: fixed;
+  visibility: hidden;
   opacity: 0;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   background: gray;
-  transition: opacity .5s;
+  transition: opacity .5s, visibility 0s;
   pointer-events: none; }
 
 .modal-visible {
   position: fixed;
+  visibility: visible;
   opacity: 1;
   left: 0;
   right: 0;
@@ -189,7 +179,7 @@ img {
   bottom: 0;
   background: rgba(50, 50, 50, 0.8);
   z-index: 5;
-  transition: opacity .5s; }
+  transition: opacity .5s, visibility 0s; }
 
 .modal-content {
   position: absolute;
@@ -197,8 +187,6 @@ img {
   bottom: 0;
   left: 0;
   right: 0;
-  width: 60vw;
-  height: 90vh;
   margin: auto;
   background-color: #ffffff;
   border: 1px solid #ccc;
@@ -207,10 +195,11 @@ img {
   line-height: 1.5em;
   overflow-y: hidden;
   overflow-x: hidden; }
+  .modal-content p {
+    font-family: 'Raleway', sans-serif; }
   .modal-content .modal-header {
     position: relative;
-    width: 100%;
-    height: 6%; }
+    width: 100%; }
   .modal-content .modal-close {
     position: absolute;
     right: 2%;
@@ -240,18 +229,26 @@ img {
   background: #ccc; }
 
 .about {
+  font-family: 'Raleway', sans-serif;
   max-width: 900px;
   min-height: 100vh;
   margin-left: auto;
   margin-right: auto;
-  padding: 2% 3% 0 3%;
-  line-height: 2em;
-  text-align: justify;
+  padding: 2% 3% 3% 3%;
+  line-height: 1.75em;
+  word-spacing: .2em;
+  text-align: left;
   box-sizing: border-box; }
+  .about h2 {
+    font-family: 'Josefin Sans', sans-serif; }
+  .about p {
+    font-family: 'Raleway', sans-serif;
+    text-align: left; }
+  .about li {
+    text-align: left; }
   .about .profile-pic {
     width: 30%;
-    margin: .5em 1% 0 2%;
-    float: right; }
+    margin: .5em 1% 0 2%; }
     .about .profile-pic img {
       border-radius: 100%; }
 
@@ -266,10 +263,7 @@ img {
 .contact-container {
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
-  -webkit-justify-content: space-around;
-      -ms-flex-pack: distribute;
-          justify-content: space-around; }
+  display: flex; }
 
 .contact-item {
   position: relative;
@@ -277,7 +271,8 @@ img {
   height: 150px;
   background-color: #1E64BE;
   box-shadow: 0 0 20px #282828;
-  transition: box-shadow 0.3s; }
+  transition: box-shadow 0.3s;
+  margin: 1%; }
   .contact-item img {
     position: absolute;
     width: 70%;
@@ -294,7 +289,435 @@ img {
 .footer {
   font-size: 90%;
   font-style: italic;
-  width: 40%;
+  width: 100%;
   text-align: center;
   margin: 5% auto 5% auto; }
+
+.scrollPad {
+  margin-right: 16px; }
+
+@media screen and (max-width: 500px) and (orientation: landscape) {
+  .top-container {
+    position: relative;
+    min-height: 250px; }
+
+  .intro {
+    top: 10%;
+    height: 70%; }
+    .intro .title {
+      font-size: 1em; }
+
+  .intro .profile-pic {
+    width: 18vw;
+    height: 18vw;
+    border: 3px solid #ffffff;
+    border-radius: 18vw;
+    background: url(../images/ben_xsm.jpg) center;
+    background-size: cover;
+    margin-right: auto;
+    margin-left: auto; }
+
+  .name {
+    font-size: 2em; }
+
+  .skills {
+    margin-top: 7%;
+    font-size: 1em; }
+
+  .skills-hidden {
+    margin-top: 7%;
+    font-size: 1em; }
+
+  .logo {
+    display: none; }
+
+  .header {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 90%;
+    padding: 0; }
+
+  .nav {
+    text-align: right;
+    margin: 2%; }
+
+  .links {
+    position: relative;
+    bottom: 5%;
+    text-align: center; }
+
+  .about .profile-pic {
+    float: right; }
+
+  .modal-content {
+    width: 90vw;
+    height: 85vh; }
+
+  .modal-header {
+    height: 12%; }
+
+  .contact-container {
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around; } }
+@media screen and (max-width: 800px) and (min-width: 501px) and (orientation: landscape) {
+  .top-container {
+    position: relative;
+    min-height: 300px; }
+
+  .intro {
+    top: 10%;
+    height: 80%; }
+    .intro .title {
+      font-size: 1.25em; }
+
+  .intro .profile-pic {
+    width: 15vw;
+    height: 15vw;
+    border: 5px solid #ffffff;
+    border-radius: 15vw;
+    background: url(../images/ben_xsm.jpg) center;
+    background-size: cover;
+    margin-right: auto;
+    margin-left: auto; }
+
+  .name {
+    font-size: 2em; }
+
+  .skills {
+    margin-top: 3%;
+    font-size: 1.25em; }
+
+  .skills-hidden {
+    margin-top: 3%;
+    font-size: 1.25em; }
+
+  .logo {
+    display: none; }
+
+  .header {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 80%;
+    padding: 0; }
+
+  .nav {
+    text-align: right;
+    margin: 2%; }
+
+  .links {
+    position: relative;
+    bottom: 5%;
+    text-align: center;
+    margin: 2%; }
+
+  .about .profile-pic {
+    float: right; }
+
+  .contact-container {
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around; }
+
+  .modal-content {
+    width: 90vw;
+    height: 90vh; }
+
+  .modal-header {
+    height: 12%; } }
+@media screen and (max-width: 324px) and (orientation: portrait) {
+  .intro {
+    position: absolute;
+    margin-top: 20%;
+    height: 50%; }
+    .intro .title {
+      font-size: 1em; }
+
+  .intro .profile-pic {
+    width: 40vw;
+    height: 40vw;
+    border: 5px solid #ffffff;
+    border-radius: 40vw;
+    margin-bottom: 10%;
+    background: url(../images/ben_sm.jpg) center;
+    background-size: cover;
+    margin-right: auto;
+    margin-left: auto; }
+
+  .name {
+    font-size: 2em; }
+
+  .skills {
+    margin-top: 15%;
+    font-size: 1em; }
+
+  .skills-hidden {
+    margin-top: 15%;
+    font-size: 1em; }
+
+  .logo {
+    display: none; }
+
+  .header {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto; }
+
+  .nav {
+    text-align: center;
+    margin: 4%;
+    font-size: 90%; }
+
+  .links {
+    position: relative;
+    bottom: 5%;
+    text-align: center; }
+
+  .about .profile-pic {
+    width: 60%;
+    margin: 0 20% 0 20%;
+    clear: both;
+    text-align: center; }
+
+  .contact-container {
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+                -ms-grid-row-align: center;
+            align-items: center; }
+    .contact-container .contact-item {
+      margin: 5% auto 5% auto; }
+
+  .modal-content {
+    width: 90vw;
+    height: 95vh; }
+
+  .modal-header {
+    height: 10%; } }
+@media screen and (max-width: 500px) and (min-width: 325px) and (orientation: portrait) {
+  .intro {
+    position: absolute;
+    top: 10%;
+    height: 50%; }
+    .intro .title {
+      font-size: 1.2em; }
+
+  .intro .profile-pic {
+    width: 40vw;
+    height: 40vw;
+    border: 5px solid #ffffff;
+    border-radius: 40vw;
+    margin-bottom: 10%;
+    background: url(../images/ben_1x.jpg) center;
+    background-size: cover;
+    margin-right: auto;
+    margin-left: auto; }
+
+  .name {
+    font-size: 3em; }
+
+  .skills {
+    margin-top: 10%;
+    font-size: 1.2em; }
+
+  .skills-hidden {
+    margin-top: 10%;
+    font-size: 1.2em; }
+
+  .logo {
+    display: none; }
+
+  .header {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto; }
+
+  .nav {
+    text-align: center;
+    margin: 4%;
+    font-size: 105%; }
+
+  .links {
+    position: relative;
+    bottom: 5%;
+    text-align: center; }
+
+  .about .profile-pic {
+    width: 60%;
+    margin: 0 20% 0 20%;
+    clear: both;
+    text-align: center; }
+
+  .contact-container {
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+                -ms-grid-row-align: center;
+            align-items: center; }
+    .contact-container .contact-item {
+      margin: 5% auto 5% auto; }
+
+  .modal-content {
+    width: 90vw;
+    height: 95vh; }
+
+  .modal-header {
+    height: 10%; } }
+@media screen and (min-width: 501px) and (orientation: portrait) {
+  .intro .profile-pic {
+    width: 195px;
+    height: 195px;
+    border: 5px solid #ffffff;
+    border-radius: 100px;
+    background: url(../images/ben_1x.jpg) center;
+    background-size: cover;
+    margin-right: auto;
+    margin-left: auto; }
+
+  .intro {
+    top: 15%; }
+    .intro .title {
+      font-size: 2em; }
+    .intro .name {
+      font-size: 3em; }
+
+  .logo {
+    min-width: 65px;
+    max-width: 100px; }
+
+  .skills-hidden {
+    margin-top: 5%;
+    font-size: 2em; }
+
+  .skills {
+    margin-top: 5%;
+    font-size: 2em; }
+
+  .header {
+    position: relative;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+
+  .links {
+    position: absolute;
+    bottom: 5%;
+    right: 0; }
+
+  .about .profile-pic {
+    float: right; }
+
+  .contact-container {
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around; }
+    .contact-container .contact-item {
+      margin: 5% auto 5% auto; }
+
+  .modal-content {
+    width: 70vw;
+    height: 85vh; }
+
+  .modal-header {
+    height: 10%; } }
+@media screen and (min-width: 801px) and (orientation: landscape) {
+  .top-container {
+    min-height: 430px; }
+
+  .logo {
+    min-width: 65px;
+    max-width: 100px; }
+
+  .intro .profile-pic {
+    width: 35vh;
+    height: 35vh;
+    min-height: 130px;
+    min-width: 130px;
+    border: 5px solid #ffffff;
+    border-radius: 100%;
+    background: url(../images/ben_1x.jpg) center;
+    background-size: cover;
+    margin-right: auto;
+    margin-left: auto; }
+
+  .intro {
+    margin-top: 5vh; }
+    .intro .title {
+      font-size: 1.5em; }
+
+  .name {
+    font-size: 3em; }
+
+  .skills-hidden {
+    margin-top: 3%;
+    font-size: 1.5em; }
+
+  .skills {
+    margin-top: 3%;
+    font-size: 1.5em; }
+
+  .header {
+    position: relative;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+
+  .links {
+    position: absolute;
+    bottom: 5%;
+    right: 0; }
+
+  .about .profile-pic {
+    float: right; }
+
+  .contact-container {
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around; }
+
+  .modal-content {
+    width: 60vw;
+    height: 85vh; }
+
+  .modal-header {
+    height: 6%; } }
+
 /*# sourceMappingURL=style.css.map */
