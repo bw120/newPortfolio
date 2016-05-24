@@ -80,7 +80,7 @@ var ticker = {
 	//Start cysling through each item
 	run: function() {
 		var self = this;
-		self.nextItem();
+		// self.nextItem();
 		var interval = setInterval(function() {
 			self.nextItem();
 		}, 2000);
@@ -108,7 +108,7 @@ var projectInfo = function(modalID, projectIDs) {
 	var self = this;
 
 	//get elements that will need updating
-	var scrollbar = window.innerWidth > document.documentElement.clientWidth
+	var scrollbar = window.innerWidth > document.documentElement.clientWidth;
 	var container = document.getElementsByClassName("container")[0];
 	var modal = document.getElementById(modalID);
 	var modalContent = document.getElementById(content);
@@ -178,7 +178,8 @@ var projectInfo = function(modalID, projectIDs) {
 };
 
 //scroll down to element position
-var scroller = function(element) {
+var scroller = function(event, element) {
+	console.log(event);
 	event.preventDefault();
 	var topOffset = document.getElementById(element).offsetTop;
 	var scrollAmount = Math.floor(topOffset / 20);
@@ -200,7 +201,28 @@ var scroller = function(element) {
 	var aFrame = requestAnimationFrame(scrollDown);
 };
 
+var introAnimation = function() {
+	var profile = document.getElementById("profile");
+	var logo = document.getElementById("logo");
+	var nav = document.getElementById("nav");
+	var name = document.getElementById("name");
+	var title = document.getElementById("title");
+
+	profile.className = "profile-pic";
+
+	setTimeout(function() {
+		logo.classList.add("fade-in");
+		nav.classList.add("fade-in");
+		title.classList.add("fade-in");
+		name.classList.add("fade-in");
+		ticker.setUp(myData.skillsTicker.elementID, myData.skillsTicker.skills);
+	}, 1100)
+
+};
+
 var initiate = function() {
-	ticker.setUp(myData.skillsTicker.elementID, myData.skillsTicker.skills);
 	projectInfo("modal", myData.projects.ids);
+	introAnimation();
+
+
 };

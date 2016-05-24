@@ -1,5 +1,14 @@
 /** {border: 1px solid red;}*/
 
+.fade-out {
+	opacity: 0;
+	transition: opacity 2s;
+}
+.fade-in {
+	opacity: 1;
+	transition: opacity 2s;
+}
+
 html, body {
 	border: 0;
 	margin: 0;
@@ -47,6 +56,12 @@ img {
 
 .container {
 	position: relative;
+}
+
+.profile-pic-hidden {
+		width: 0;
+		height: 0;
+		transition: width 2s, height 2s;
 }
 
 .top-container {
@@ -142,11 +157,13 @@ img {
 		align-content: space-between;
 
 		.project-item {
+			display: block;
 			position: relative;
 			width: 30%;
+			height: 30%;
 			min-width: 150px;
 			max-width: 250px;
-			margin: 2%;
+			margin: 1em;
 			border: 0;
 			cursor:pointer;
 			box-shadow: 0 0 20px #282828;
@@ -398,6 +415,7 @@ img {
 		background-size: cover;
 		margin-right: auto;
 		margin-left: auto;
+		transition: width 2s, height 2s;
 	}
 
 	.name {
@@ -483,6 +501,7 @@ img {
 		background-size: cover;
 		margin-right: auto;
 		margin-left: auto;
+		transition: width 2s, height 2s;
 	}
 
 	.name {
@@ -568,6 +587,7 @@ img {
 		background-size: cover;
 		margin-right: auto;
 		margin-left: auto;
+		transition: width 2s, height 2s;
 	}
 
 	.name {
@@ -659,6 +679,7 @@ img {
 		background-size: cover;
 		margin-right: auto;
 		margin-left: auto;
+		transition: width 2s, height 2s;
 	}
 
 	.name {
@@ -741,6 +762,7 @@ img {
 		background-size: cover;
 		margin-right: auto;
 		margin-left: auto;
+		transition: width 2s, height 2s;
 	}
 
 	.intro {
@@ -822,14 +844,15 @@ img {
 	.intro .profile-pic {
 		width: 35vh;
 		height: 35vh;
-		min-height: 130px;
-		min-width: 130px;
+/*		min-height: 130px;
+		min-width: 130px;*/
 		border: 5px solid #ffffff;
 		border-radius: 100%;
 		background: url(../images/ben_1x.jpg) center;
 		background-size: cover;
 		margin-right: auto;
 		margin-left: auto;
+		transition: width 1s, height 1s;
 	}
 
 	.intro {

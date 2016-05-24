@@ -1,4 +1,12 @@
 /** {border: 1px solid red;}*/
+.fade-out {
+  opacity: 0;
+  transition: opacity 2s; }
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 2s; }
+
 html, body {
   border: 0;
   margin: 0;
@@ -37,6 +45,11 @@ img {
 
 .container {
   position: relative; }
+
+.profile-pic-hidden {
+  width: 0;
+  height: 0;
+  transition: width 2s, height 2s; }
 
 .top-container {
   background: #2183de;
@@ -101,24 +114,18 @@ img {
   padding: 2% 3% 0 3%;
   box-sizing: border-box; }
   .projects .projects-feature {
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-    -webkit-justify-content: space-around;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
-    -ms-flex-line-pack: justify;
-        -webkit-align-content: space-between;
-            align-content: space-between; }
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-between; }
     .projects .projects-feature .project-item {
+      display: block;
       position: relative;
       width: 30%;
+      height: 30%;
       min-width: 150px;
       max-width: 250px;
-      margin: 2%;
+      margin: 1em;
       border: 0;
       cursor: pointer;
       box-shadow: 0 0 20px #282828; }
@@ -261,8 +268,6 @@ img {
   box-sizing: border-box; }
 
 .contact-container {
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex; }
 
 .contact-item {
@@ -315,7 +320,8 @@ img {
     background: url(../images/ben_xsm.jpg) center;
     background-size: cover;
     margin-right: auto;
-    margin-left: auto; }
+    margin-left: auto;
+    transition: width 2s, height 2s; }
 
   .name {
     font-size: 2em; }
@@ -358,12 +364,8 @@ img {
     height: 12%; }
 
   .contact-container {
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-justify-content: space-around;
-        -ms-flex-pack: distribute;
-            justify-content: space-around; } }
+    flex-direction: row;
+    justify-content: space-around; } }
 @media screen and (max-width: 800px) and (min-width: 501px) and (orientation: landscape) {
   .top-container {
     position: relative;
@@ -383,7 +385,8 @@ img {
     background: url(../images/ben_xsm.jpg) center;
     background-size: cover;
     margin-right: auto;
-    margin-left: auto; }
+    margin-left: auto;
+    transition: width 2s, height 2s; }
 
   .name {
     font-size: 2em; }
@@ -420,12 +423,8 @@ img {
     float: right; }
 
   .contact-container {
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-justify-content: space-around;
-        -ms-flex-pack: distribute;
-            justify-content: space-around; }
+    flex-direction: row;
+    justify-content: space-around; }
 
   .modal-content {
     width: 90vw;
@@ -450,7 +449,8 @@ img {
     background: url(../images/ben_sm.jpg) center;
     background-size: cover;
     margin-right: auto;
-    margin-left: auto; }
+    margin-left: auto;
+    transition: width 2s, height 2s; }
 
   .name {
     font-size: 2em; }
@@ -492,13 +492,8 @@ img {
     text-align: center; }
 
   .contact-container {
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-                -ms-grid-row-align: center;
-            align-items: center; }
+    flex-direction: column;
+    align-items: center; }
     .contact-container .contact-item {
       margin: 5% auto 5% auto; }
 
@@ -525,7 +520,8 @@ img {
     background: url(../images/ben_1x.jpg) center;
     background-size: cover;
     margin-right: auto;
-    margin-left: auto; }
+    margin-left: auto;
+    transition: width 2s, height 2s; }
 
   .name {
     font-size: 3em; }
@@ -567,13 +563,8 @@ img {
     text-align: center; }
 
   .contact-container {
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-                -ms-grid-row-align: center;
-            align-items: center; }
+    flex-direction: column;
+    align-items: center; }
     .contact-container .contact-item {
       margin: 5% auto 5% auto; }
 
@@ -592,7 +583,8 @@ img {
     background: url(../images/ben_1x.jpg) center;
     background-size: cover;
     margin-right: auto;
-    margin-left: auto; }
+    margin-left: auto;
+    transition: width 2s, height 2s; }
 
   .intro {
     top: 15%; }
@@ -615,15 +607,9 @@ img {
 
   .header {
     position: relative;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-flex-wrap: nowrap;
-        -ms-flex-wrap: nowrap;
-            flex-wrap: nowrap;
-    -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-            justify-content: space-between; }
+    flex-wrap: nowrap;
+    justify-content: space-between; }
 
   .links {
     position: absolute;
@@ -634,12 +620,8 @@ img {
     float: right; }
 
   .contact-container {
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-justify-content: space-around;
-        -ms-flex-pack: distribute;
-            justify-content: space-around; }
+    flex-direction: row;
+    justify-content: space-around; }
     .contact-container .contact-item {
       margin: 5% auto 5% auto; }
 
@@ -660,14 +642,15 @@ img {
   .intro .profile-pic {
     width: 35vh;
     height: 35vh;
-    min-height: 130px;
-    min-width: 130px;
+    /*		min-height: 130px;
+    		min-width: 130px;*/
     border: 5px solid #ffffff;
     border-radius: 100%;
     background: url(../images/ben_1x.jpg) center;
     background-size: cover;
     margin-right: auto;
-    margin-left: auto; }
+    margin-left: auto;
+    transition: width 1s, height 1s; }
 
   .intro {
     margin-top: 5vh; }
@@ -687,15 +670,9 @@ img {
 
   .header {
     position: relative;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-flex-wrap: nowrap;
-        -ms-flex-wrap: nowrap;
-            flex-wrap: nowrap;
-    -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-            justify-content: space-between; }
+    flex-wrap: nowrap;
+    justify-content: space-between; }
 
   .links {
     position: absolute;
@@ -706,12 +683,8 @@ img {
     float: right; }
 
   .contact-container {
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-justify-content: space-around;
-        -ms-flex-pack: distribute;
-            justify-content: space-around; }
+    flex-direction: row;
+    justify-content: space-around; }
 
   .modal-content {
     width: 60vw;
@@ -719,4 +692,5 @@ img {
 
   .modal-header {
     height: 6%; } }
+
 /*# sourceMappingURL=style.css.map */

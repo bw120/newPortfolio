@@ -14,20 +14,20 @@
 			<div class="top-container">
 				<div class="top">
 					<div class="header">
-						<div class="logo"><img class="image" src="images/logo.svg" alt="logo"></div>
-						<div class="nav">
+						<div class="logo fade-out" id="logo"><img class="image" src="images/logo.svg" alt="logo"></div>
+						<div class="nav fade-out" id="nav">
 							<span class="links">
-								<a href="#projects" onclick="scroller('projects')">Projects</a> /
-								<a href="#about" onclick="scroller('about')">About</a> /
-								<a href="#contact" onclick="scroller('contact')">Contact</a>
+								<a href="#projects" onclick="scroller(event, 'projects')">Projects</a> /
+								<a href="#about" onclick="scroller(event, 'about')">About</a> /
+								<a href="#contact" onclick="scroller(event, 'contact')">Contact</a>
 							</span>
 						</div>
 					</div>
 					<div class="intro">
-						<div class="profile-pic"></div>
-						<div class="name">Ben Wright</div>
-						<div class="title">Front-End Web Developer</div>
-						<div id="skills" class="skills"></div>
+						<div id="profile" class="profile-pic-hidden"></div>
+						<div id="name" class="name fade-out">Ben Wright</div>
+						<div id="title" class="title fade-out">Front-End Web Developer</div>
+						<div id="skills" class="skills fade-out"></div>
 					</div>
 
 				</div>
