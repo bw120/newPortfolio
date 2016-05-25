@@ -13,6 +13,7 @@ html, body {
 	border: 0;
 	margin: 0;
 	padding: 0;
+	color: #363636;
 	font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -79,14 +80,14 @@ img {
 	  	radial-gradient(circle at 6% 6%, #4799E3 25%, #2185DE 25%, #2185DE 45%, #0976D8 45%, #0976D8 70%, #1E64BE 70%);
 
 	.top {
-	position: relative;
-	max-width: 900px;
-	height: 100%;
-	margin-left: auto;
-	margin-right: auto;
-	padding: 2% 3% 0 3%;
-	box-sizing: border-box;
-	color: #ffffff;
+		position: relative;
+		max-width: 900px;
+		height: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 2% 3% 0 3%;
+		box-sizing: border-box;
+		color: #ffffff;
 
 	.logo {
 		width: 15vh;
@@ -168,6 +169,14 @@ img {
 			cursor:pointer;
 			box-shadow: 0 0 20px #282828;
 
+			h3 {
+				padding-bottom: 1em;
+			}
+
+			p {
+				margin-bottom: .5em;
+			}
+
 			img {
 				display: block;
 			}
@@ -219,14 +228,13 @@ img {
 
 .modal-hidden {
 	position: fixed;
-	visibility: hidden;
 	opacity: 0;
 	left: 0;
 	right: 0;
 	top: 0;
 	bottom: 0;
 	background: gray;
-	transition: opacity .5s, visibility 0s;
+	transition: opacity .5s;
 	pointer-events: none;
 }
 
@@ -302,7 +310,7 @@ img {
 
 .about-container {
 	width: 100%;
-	background: #ccc;
+	background: #f0f0f0;
 }
 
 .about {
@@ -555,7 +563,7 @@ img {
 
 	.modal-content {
 		width: 90vw;
-		height: 90vh;
+		height: 80vh;
 	}
 
 	.modal-header {
@@ -650,7 +658,7 @@ img {
 
 	.modal-content {
 		width: 90vw;
-		height: 95vh;
+		height: 80vh;
 	}
 
 	.modal-header {
@@ -741,7 +749,7 @@ img {
 
 	.modal-content {
 		width: 90vw;
-		height: 95vh;
+		height: 85vh;
 	}
 
 	.modal-header {

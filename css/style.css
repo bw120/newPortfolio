@@ -11,6 +11,7 @@ html, body {
   border: 0;
   margin: 0;
   padding: 0;
+  color: #363636;
   font-family: 'Josefin Sans', sans-serif; }
 
 p {
@@ -137,6 +138,10 @@ img {
       border: 0;
       cursor: pointer;
       box-shadow: 0 0 20px #282828; }
+      .projects .projects-feature .project-item h3 {
+        padding-bottom: 1em; }
+      .projects .projects-feature .project-item p {
+        margin-bottom: .5em; }
       .projects .projects-feature .project-item img {
         display: block; }
       .projects .projects-feature .project-item .project-overlay {
@@ -174,14 +179,13 @@ img {
 
 .modal-hidden {
   position: fixed;
-  visibility: hidden;
   opacity: 0;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   background: gray;
-  transition: opacity .5s, visibility 0s;
+  transition: opacity .5s;
   pointer-events: none; }
 
 .modal-visible {
@@ -241,7 +245,7 @@ img {
 
 .about-container {
   width: 100%;
-  background: #ccc; }
+  background: #f0f0f0; }
 
 .about {
   font-family: 'Raleway', sans-serif;
@@ -446,7 +450,7 @@ img {
 
   .modal-content {
     width: 90vw;
-    height: 90vh; }
+    height: 80vh; }
 
   .modal-header {
     height: 12%; } }
@@ -522,7 +526,7 @@ img {
 
   .modal-content {
     width: 90vw;
-    height: 95vh; }
+    height: 80vh; }
 
   .modal-header {
     height: 10%; } }
@@ -598,7 +602,7 @@ img {
 
   .modal-content {
     width: 90vw;
-    height: 95vh; }
+    height: 85vh; }
 
   .modal-header {
     height: 10%; } }
