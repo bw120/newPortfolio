@@ -103,83 +103,81 @@ var ticker = {
 };
 
 //pops up info box when project item is hovered over and opens model when clicked
-var projectInfo = function(modalID, projectIDs) {
-
-	var self = this;
+var projectInfo = {
 
 	//get elements that will need updating
-	var scrollbar = window.innerWidth > document.documentElement.clientWidth;
-	var container = document.getElementsByClassName("container")[0];
-	var modal = document.getElementById(modalID);
-	var modalContent = document.getElementById(content);
-	var close = modal.getElementsByClassName("modal-close")[0];
-	var content = modal.getElementsByClassName("modal-content")[0];
-	var image = modal.getElementsByClassName("screenshot")[0];
-	var title = content.getElementsByClassName("title")[0];
-	var date = content.getElementsByClassName("date")[0];
-	var skills = content.getElementsByClassName("project-skills")[0];
-	var link = content.getElementsByClassName("link")[0];
-	var github = content.getElementsByClassName("github")[0];
-	var description = content.getElementsByClassName("description")[0];
-	var body = document.getElementsByTagName("body")[0];
+	scrollbar: window.innerWidth > document.documentElement.clientWidth,
+	container: document.getElementsByClassName("container")[0],
+	body: document.getElementsByTagName("body")[0],
+	modal: null,
 
 	//adds listeners to each project ID
-	this.addListeners = function() {
+	addListeners : function(modalID, projectIDs) {
 
-		close.addEventListener("click", function() {
-			self.closeModal(modal);
-		});
+		this.modal = document.getElementById(modalID);
 
 		projectIDs.map(function(item) {
 
-			var element = document.getElementById(item);
+			var element = document.getElementById(item).children[0];
 
 			element.addEventListener("mouseover", function() {
-				self.mouseOn(element.children[0]);
+				projectInfo.mouseOn(element);
 			});
 			element.addEventListener("mouseout", function() {
-				self.mouseOff(element.children[0]);
+				projectInfo.mouseOff(element);
 			});
 			element.addEventListener("click", function() {
-				self.openModal(modal, content, item);
+				projectInfo.openModal(modal, item);
 			});
 		});
-	};
+	},
 
-	this.mouseOn = function(element) {
+	mouseOn: function(element) {
 		element.className = "project-overlay";
-	};
+	},
 
-	this.mouseOff = function(element) {
+	mouseOff: function(element) {
 		element.className = "project-overlay-hidden";
-	};
+	},
 
-	this.openModal = function(element, content, item) {
-		if (scrollbar) container.classList.add("scrollPad");
-		image.src = myData.projects.projectInfo[item].picture;
-		title.innerHTML = myData.projects.projectInfo[item].title;
-		date.innerHTML = myData.projects.projectInfo[item].date;
-		skills.innerHTML = myData.projects.projectInfo[item].skills;
-		link.innerHTML = "<a href='" + myData.projects.projectInfo[item].link + "' target='_blank'>" + myData.projects.projectInfo[item].link + "</a>";
-		github.innerHTML = "<a href='" + myData.projects.projectInfo[item].github + "' target='_blank'>" + myData.projects.projectInfo[item].github + "</a>";
-		description.innerHTML = myData.projects.projectInfo[item].description;
+	openModal: function(element, item) {
+		var liveLink = "";
+		if (myData.projects.projectInfo[item].link.length > 0) {
+		 liveLink = "<span><strong>Live Link: </strong><span class='link'><a href='" + myData.projects.projectInfo[item].link + "' target='_blank'>" + myData.projects.projectInfo[item].link + "</a></span>";
+		}
 
+		var modalContent = "<div class='modal-content'>" +
+			"	<div class='modal-header'>" +
+			"		<div class='title'>" + myData.projects.projectInfo[item].title + "</div>" +
+			"		<div class='modal-close' onclick='projectInfo.closeModal()'>close X</div>" +
+			"	</div>" +
+			"	<div class='modal-main'>" +
+			"		<img src='" + myData.projects.projectInfo[item].picture + "' class='screenshot' alt='screenshot'>" +
+			"		<p><strong>Date: </strong><span class='date'>" + myData.projects.projectInfo[item].date + "</span>" +
+			"		<p><strong>Skills: </strong><br><span class='project-skills'>" + myData.projects.projectInfo[item].skills + "</span>" +
+			"		<p><strong>Description: </strong>" +
+			"		<br><span class='description'>" + myData.projects.projectInfo[item].description + "</span>" +
+			"		<p>" + liveLink +
+			"		<p><strong>GitHub: </strong><span class='github'><a href='" + myData.projects.projectInfo[item].github + "' target='_blank'>" + myData.projects.projectInfo[item].github + "</a></span>" +
+			"	</div>" +
+			"</div>";
+
+		element.innerHTML = modalContent;
+		if (this.scrollbar) this.container.classList.add("scrollPad");
 		element.className = "modal-visible";
-		body.style.overflowY = "hidden";
-	};
+		this.body.style.overflowY = "hidden";
+	},
 
-	this.closeModal = function(element) {
-		container.classList.remove("scrollPad");
-		element.className = "modal-hidden";
-		body.style.overflowY = "auto";
-	};
+	closeModal: function() {
+		this.modal.className = "modal-hidden";
+		this.container.classList.remove("scrollPad");
+		this.body.style.overflowY = "auto";
+	}
 
-	this.addListeners();
 };
 
 //scroll down to element position
 var scroller = function(event, element) {
-	console.log(event);
 	event.preventDefault();
 	var topOffset = document.getElementById(element).offsetTop;
 	var scrollAmount = Math.floor(topOffset / 20);
@@ -194,7 +192,6 @@ var scroller = function(event, element) {
 			} else {
 				window.scrollTo(0, topOffset);
 				cancelAnimationFrame(aFrame);
-				return;
 			}
 		}
 	};
@@ -215,14 +212,11 @@ var introAnimation = function() {
 		nav.classList.add("fade-in");
 		title.classList.add("fade-in");
 		name.classList.add("fade-in");
-		ticker.setUp(myData.skillsTicker.elementID, myData.skillsTicker.skills);
-	}, 1100)
-
+	}, 1100);
 };
 
 var initiate = function() {
-	projectInfo("modal", myData.projects.ids);
 	introAnimation();
-
-
+	projectInfo.addListeners("modal", myData.projects.ids);
+	setTimeout(ticker.setUp(myData.skillsTicker.elementID, myData.skillsTicker.skills), 1100);
 };
