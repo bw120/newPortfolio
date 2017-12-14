@@ -7,13 +7,13 @@ var myData = {
 		elementID: "skills"
 	},
 	projects: {
-		ids: ['brewJabber', 'myReads', 'hubTransit', 'brewFiend', 'arcade', 'optimization'],
+		ids: ['brewJabber', 'myReads', 'justBenRoasted', 'hubTransit', 'brewFiend', 'arcade', 'optimization'],
 		modal: "projectWindow",
 		projectInfo: {
 			brewJabber: {
 				title: "Brew Jabber",
 				date: "October 2017",
-				link: "https://github.com/bw120/BrewJabber",
+				link: "http://brewjabber.thebenwright.com/",
 				github: "https://github.com/bw120/BrewJabber",
 				skills: "React, Redux, JavaScript, CSS, HTML",
 				picture: "images/brewJabber_c_1x.png",
@@ -27,6 +27,15 @@ var myData = {
 				skills: "React, JavaScript, HTML, CSS",
 				picture: "images/myReads_c_1x.png",
 				description: "Built using ReactJS, this app allows you to search for books and keep track of books that you are reading. The app pulls book info from an API and then allows you to add it to one of three shelves–want to read, currently reading and shelf for books you have read."
+			},
+			justBenRoasted: {
+				title: "Just Ben Roasted Coffee",
+				date: "August 2017",
+				link: "http://www.justbenroasted.com/",
+				github: "https://github.com/bw120/JustBenRoasted",
+				skills: "Responsive design, HTML, CSS, Zurb Foundation (CSS frameork), JavaScript and jQuery",
+				picture: "images/JustBenRoasted_c_1x.png",
+				description: "Designed and built this responsive website using HTML, CSS, JavaScript and jQuery. I wrote custom JavaScript to handle the scroll effects, navigation and enhance the responsiveness."
 			},
 			hubTransit: {
 				title: "HubTransit",
